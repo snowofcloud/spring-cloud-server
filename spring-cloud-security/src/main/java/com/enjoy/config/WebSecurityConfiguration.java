@@ -21,7 +21,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-
+        System.out.println("..");
 
         http.httpBasic().and().authorizeRequests().anyRequest()
                 .fullyAuthenticated();
