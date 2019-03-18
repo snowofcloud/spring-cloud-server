@@ -12,16 +12,23 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @RestController
-@RequestMapping("/consumer")
+@RequestMapping("/consumer")   ///consumer/product/list
 public class ConsumerProductController {
 
-    private static final String PRODUCT_GET_URL = "http://localhost:8080/product/get/";
-    private static final String PRODUCT_LIST_URL="http://localhost:8080/product/list/";
-    private static final String PRODUCT_ADD_URL = "http://localhost:8080/product/add/";
+
+/*以前用的*/
+//    private static final String PRODUCT_GET_URL = "http://localhost:8080/product/get/";
+//    private static final String PRODUCT_LIST_URL="http://localhost:8080/product/list/";
+//    private static final String PRODUCT_ADD_URL = "http://localhost:8080/product/add/";
+
+    private static final String PRODUCT_GET_URL = "http://SPRING-CLOUD-PRODUCT/product/get/";
+    private static final String PRODUCT_LIST_URL="http://SPRING-CLOUD-PRODUCT/product/list/";
+    private static final String PRODUCT_ADD_URL = "http://SPRING-CLOUD-PRODUCT/product/add/";
 
     @Resource
     private RestTemplate restTemplate;
 
+    //没使用springSecurity
 /*    @RequestMapping("/product/get")
     public Object getProduct(long id){
         return restTemplate.getForObject(PRODUCT_GET_URL + id, Product.class);
@@ -37,6 +44,8 @@ public class ConsumerProductController {
         return restTemplate.postForObject(PRODUCT_ADD_URL, product, Boolean.class);
     }*/
 
+
+    //使用了springSecurity
     @Resource
     private HttpHeaders httpHeaders;
 
