@@ -13,6 +13,9 @@
         <module>spring-cloud-product</module>
         <module>spring-cloud-consumer</module>
         <module>spring-cloud-security</module>
+        <module>spring-cloud-eureka</module>
+        <module>spring-cloud-eureka2</module>
+        <module>spring-cloud-eureka3</module>
     </modules>
 
     <properties>
@@ -57,9 +60,25 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
     <build>
         <finalName>spring-cloud-server</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <delimiters>
+                        <delimiter>$</delimiter>
+                    </delimiters>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -70,4 +89,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

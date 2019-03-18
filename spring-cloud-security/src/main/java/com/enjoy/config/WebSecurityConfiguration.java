@@ -15,13 +15,12 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(AuthenticationManagerBuilder auth)
             throws Exception {
-        auth.inMemoryAuthentication().passwordEncoder(new BCryptPasswordEncoder()).withUser("root").password(new BCryptPasswordEncoder().encode("")).roles("USER").
+        auth.inMemoryAuthentication().passwordEncoder(new BCryptPasswordEncoder()).withUser("root2").password(new BCryptPasswordEncoder().encode("123456")).roles("USER").
                 and().withUser("adminn").password(new BCryptPasswordEncoder().encode("enjoy")).roles("USER", "ADMIN");
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        System.out.println("..");
 
         http.httpBasic().and().authorizeRequests().anyRequest()
                 .fullyAuthenticated();

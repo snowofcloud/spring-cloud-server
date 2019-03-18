@@ -5,6 +5,10 @@ mybatis:
     - classpath:mapping/*.xml
 spring:
 
+  application:
+    name: spring-cloud-product
+
+#springSecurity单独使用的，没有形成一个模块，
 #  security:
 #    user:
 #      name: adminn  # 认证用户名
@@ -15,11 +19,36 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource # 配置当前要使用的数据源的操作类型
     driver-class-name: com.mysql.cj.jdbc.Driver # 配置MySQL的驱动程序类
-    url: jdbc:mysql://localhost:3306/testdb?serverTimezone=GMT%2B8 # 数据库连接地址
-    username: root # 数据库用户名
+    url: jdbc:mysql://localhost:3306/springcloud?serverTimezone=GMT%2B8 # 数据库连接地址
+    username: root2 # 数据库用户名
 #    username: root # 数据库用户名
 #    password: root1234% # 数据库连接密码
-    password:  # 数据库连接密码
+    password: 123456 # 数据库连接密码
 logging:
   level:
     cn.enjoy.mapper: debug
+
+eureka:
+  client: # 客户端进行Eureka注册的配置
+    service-url:
+#      没加密的
+#      defaultZone: http://localhost:7001/eureka
+#      加密的
+#      defaultZone: http://adminn:enjoy@localhost:7001/eureka
+#      多注册中心的
+      defaultZone: http://adminn:enjoy@eureka1:7001/eureka,http://adminn:enjoy@eureka2:7002/eureka,http://adminn:enjoy@eureka3:7003/eureka
+  instance:
+    instance-id: spring-cloud-product-instance
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 2 # 设置心跳的时间间隔（默认是30秒）
+    lease-expiration-duration-in-seconds: 5  # 如果现在超过了5秒的间隔（默认是90秒）
+
+info:
+  app.name: spring-cloud-provider-product
+  company.name: enjoy
+  build.artifactId: $project.artifactId$
+  build.modelVersion: $project.modelVersion$
+
+
+
+
