@@ -33,10 +33,10 @@ public class RestConfig {
     }
 
     //控制随机访问策略
-    @Bean
+    /*@Bean
     public IRule ribbonRule() { // 其中IRule就是所有规则的标准
         return new com.netflix.loadbalancer.RandomRule(); // 随机的访问策略
-    }
+    }*/
 
 
 }
