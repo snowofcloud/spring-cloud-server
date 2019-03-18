@@ -1,6 +1,8 @@
 package com.enjoy.controller;
 
 import com.enjoy.vo.Product;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -49,15 +51,30 @@ public class ConsumerProductController {
     @Resource
     private HttpHeaders httpHeaders;
 
+    //增加一个LoadBalancerClient
+    @Resource
+    private LoadBalancerClient loadBalancerClient;
+
     @RequestMapping("/product/get")
     public Object getProduct(long id) {
         return  restTemplate.exchange(PRODUCT_GET_URL + id, HttpMethod.GET,new HttpEntity<Object>(httpHeaders), Product.class).getBody();
     }
 
-    @RequestMapping("/product/list")
+    /*@RequestMapping("/product/list")
     public  Object listProduct() {
         return  restTemplate.exchange(PRODUCT_LIST_URL,HttpMethod.GET,new HttpEntity<Object>(httpHeaders), List.class).getBody();
+    }*/
+
+    @RequestMapping("/product/list")
+    public  Object listProduct() {
+        ServiceInstance serviceInstance = this.loadBalancerClient.choose("SPRING-CLOUD-PRODUCT") ;
+        System.out.println(
+                "【*** ServiceInstance ***】host = " + serviceInstance.getHost()
+                        + "、port = " + serviceInstance.getPort()
+                        + "、serviceId = " + serviceInstance.getServiceId());
+        return  restTemplate.exchange(PRODUCT_LIST_URL,HttpMethod.GET,new HttpEntity<Object>(httpHeaders), List.class).getBody();
     }
+
 
     @RequestMapping("/product/add")
     public Object addPorduct(Product product) {
