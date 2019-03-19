@@ -14,6 +14,7 @@
         <module>spring-cloud-product2</module>
         <module>spring-cloud-product3</module>
         <module>spring-cloud-consumer</module>
+        <module>spring-cloud-consumer-ribbon</module>
         <module>spring-cloud-security</module>
         <module>spring-cloud-eureka</module>
         <module>spring-cloud-eureka2</module>
