@@ -9,7 +9,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableEurekaClient
-@RibbonClient(name = "SPRING-CLOUD-PRODUCT", configuration = RibbonConfig.class)
+@RibbonClient(name = "SPRING-CLOUD-PRODUCT", configuration = RibbonConfig.class)//使用这个配置，服务方式由轮询变成了随机
 @EnableFeignClients("com.enjoy.service")
 public class ConsumerFeignApp {
 
