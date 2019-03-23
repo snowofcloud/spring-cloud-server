@@ -21,6 +21,7 @@
         <module>spring-cloud-eureka2</module>
         <module>spring-cloud-eureka3</module>
         <module>spring-cloud-service</module>
+        <module>spring-cloud-product-hystrix</module>
     </modules>
 
     <properties>
