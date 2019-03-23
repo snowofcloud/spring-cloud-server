@@ -23,6 +23,8 @@
         <module>spring-cloud-service</module>
         <module>spring-cloud-product-hystrix</module>
         <module>spring-cloud-consumer-hystrix-dashboard</module>
+        <module>spring-cloud-user-hystrix</module>
+        <module>spring-cloud-consumer-turbine</module>
     </modules>
 
     <properties>

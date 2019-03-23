@@ -26,7 +26,7 @@ spring:
     password: 123456 # 数据库连接密码
 logging:
   level:
-    cn.enjoy.mapper: debug
+    com.enjoy.mapper: debug
 
 #打开端口
 management:

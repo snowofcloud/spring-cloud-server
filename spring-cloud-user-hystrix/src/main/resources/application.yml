@@ -1,0 +1,40 @@
+server:
+  port: 8090
+
+spring:
+  application:
+    name: spring-cloud-users
+
+
+logging:
+  level:
+    com.enjoy.mapper: debug
+
+eureka:
+  client: # 客户端进行Eureka注册的配置
+    service-url:
+      #      没加密的
+      #      defaultZone: http://localhost:7001/eureka
+      #      加密的
+      #      defaultZone: http://adminn:enjoy@localhost:7001/eureka
+      #      多注册中心的
+      defaultZone: http://adminn:enjoy@eureka1:7001/eureka,http://adminn:enjoy@eureka2:7002/eureka,http://adminn:enjoy@eureka3:7003/eureka
+  instance:
+    instance-id: spring-cloud-users-instance
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 2 # 设置心跳的时间间隔（默认是30秒）
+    lease-expiration-duration-in-seconds: 5  # 如果现在超过了5秒的间隔（默认是90秒）
+
+
+info:
+  app.name: spring-cloud-users
+  company.name: enjoy
+  build.artifactId: $project.artifactId$
+  build.modelVersion: $project.modelVersion$
+
+#打开端口
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

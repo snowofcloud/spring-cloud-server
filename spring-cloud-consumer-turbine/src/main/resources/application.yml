@@ -1,0 +1,11 @@
+server:
+  port: 9101
+eureka:
+  client:
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://adminn:enjoy@eureka1:7001/eureka,http://adminn:enjoy@eureka2:7002/eureka,http://adminn:enjoy@eureka3:7003/eureka
+
+turbine:
+  app-config: SPRING-CLOUD-PRODUCT,SPRING-CLOUD-USERS
+  cluster-name-expression: new String("default")
