@@ -41,6 +41,9 @@ zuul:
     users2:
       path: /users2-proxy/**
       url: http://localhost:8090/
+    product:
+      path: /product-proxy/**
+      serviceId: spring-cloud-product
   ignored-services:
     "*"
   prefix: /enjoy-api
