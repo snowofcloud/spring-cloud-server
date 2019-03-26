@@ -10,3 +10,32 @@ eureka:
 spring:
   application:
     name:  spring-cloud-zuul-gateway
+
+#zuul:
+#  routes:
+#    spring-cloud-users:  /users-proxy/**
+#  ignored-services:
+#    # 忽略掉用户服务的名称
+##    spring-cloud-users  #这种方式也可以，但真实情况下，一般会有很多微服务，如果完全按照上面的配置方式会非常的麻烦，所有最加到的做法是可以采用一个通配符“*”的模式来统一完成。的模式来统一完成
+#    "*"
+
+#
+#zuul:
+#  routes:
+#    users.path: /users-proxy/**
+#    users.serviceId: spring-cloud-users
+#  ignored-services:
+#    "*"
+
+zuul:
+  routes:
+    users:
+      path: /users-proxy/**
+      serviceId: spring-cloud-users
+    users2:
+      path: /users2-proxy/**
+      url: http://localhost:8090/
+  ignored-services:
+    "*"
+  prefix: /enjoy-api
+
