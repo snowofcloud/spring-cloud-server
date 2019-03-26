@@ -8,7 +8,9 @@ import org.springframework.cloud.netflix.zuul.filters.support.FilterConstants;
 import java.nio.charset.Charset;
 import java.util.Base64;
 
+
 public class AuthorizedRequestFilter extends ZuulFilter {
+
     @Override
     public String filterType() {
         return FilterConstants.PRE_TYPE;
