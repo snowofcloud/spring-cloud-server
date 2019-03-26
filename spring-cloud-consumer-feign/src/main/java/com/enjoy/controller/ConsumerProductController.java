@@ -1,6 +1,7 @@
 package com.enjoy.controller;
 
 import com.enjoy.service.IProductClientService;
+import com.enjoy.service.IZUUlClientService;
 import com.enjoy.vo.Product;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
@@ -12,7 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/consumer")   ///consumer/product/list
@@ -21,6 +24,10 @@ public class ConsumerProductController {
 
     @Resource
     private IProductClientService iProductClientService;
+
+    @Resource
+    private IZUUlClientService izuUlClientService;
+
 
     @RequestMapping("/product/get")
     public Object getProduct(long id) {
@@ -37,8 +44,17 @@ public class ConsumerProductController {
         return  iProductClientService.addPorduct(product);
     }
 
+    @RequestMapping("/product/getProductAndUser")
+    public Object getProductAndUser(long id) {
+        Map<String,Object> result = new HashMap();
+        result.put("product",izuUlClientService.getProduct(id));
+        result.put("user",izuUlClientService.getUsers(id+""));
+        return  result;
+    }
 
-/*以前用的*/
+
+
+    /*以前用的*/
 //    private static final String PRODUCT_GET_URL = "http://localhost:8080/product/get/";
 //    private static final String PRODUCT_LIST_URL="http://localhost:8080/product/list/";
 //    private static final String PRODUCT_ADD_URL = "http://localhost:8080/product/add/";
