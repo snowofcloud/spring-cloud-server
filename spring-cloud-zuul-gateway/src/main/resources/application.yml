@@ -1,0 +1,12 @@
+server:
+  port: 9501
+
+eureka:
+  client: # 客户端进行Eureka注册的配置
+    service-url:
+      defaultZone: http://adminn:enjoy@eureka1:7001/eureka,http://adminn:enjoy@eureka2:7002/eureka,http://adminn:enjoy@eureka3:7003/eureka
+    register-with-eureka: false
+
+spring:
+  application:
+    name:  spring-cloud-zuul-gateway
