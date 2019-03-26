@@ -10,6 +10,10 @@ eureka:
 spring:
   application:
     name:  spring-cloud-zuul-gateway
+  security:
+    user:
+      name: adminn
+      password: enjoy
 
 #zuul:
 #  routes:
@@ -27,6 +31,8 @@ spring:
 #  ignored-services:
 #    "*"
 
+
+#这是公共前缀
 zuul:
   routes:
     users:
@@ -38,4 +44,6 @@ zuul:
   ignored-services:
     "*"
   prefix: /enjoy-api
+
+
 
