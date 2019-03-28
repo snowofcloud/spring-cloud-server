@@ -26,6 +26,7 @@
         <module>spring-cloud-user-hystrix</module>
         <module>spring-cloud-consumer-turbine</module>
         <module>spring-cloud-zuul-gateway</module>
+        <module>spring-cloud-config</module>
     </modules>
 
     <properties>
