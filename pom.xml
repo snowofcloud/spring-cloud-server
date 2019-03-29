@@ -33,6 +33,8 @@
         <module>spring-cloud-config-eureka-client</module>
         <module>spring-cloud-config-product-client</module>
         <module>spring-cloud-config-eureka-high</module>
+        <module>spring-cloud-config-bus</module>
+        <module>spring-cloud-config-bus-client</module>
     </modules>
 
     <properties>
