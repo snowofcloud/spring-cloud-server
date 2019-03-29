@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: spring-cloud-config-product-client
+
+
+
+
