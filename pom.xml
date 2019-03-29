@@ -27,9 +27,12 @@
         <module>spring-cloud-consumer-turbine</module>
         <module>spring-cloud-zuul-gateway</module>
         <module>spring-cloud-config</module>
+        <module>spring-cloud-config2</module>
+        <module>spring-cloud-config3</module>
         <module>spring-cloud-config-client</module>
         <module>spring-cloud-config-eureka-client</module>
         <module>spring-cloud-config-product-client</module>
+        <module>spring-cloud-config-eureka-high</module>
     </modules>
 
     <properties>
