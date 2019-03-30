@@ -13,6 +13,13 @@ eureka:
     lease-expiration-duration-in-seconds: 5 # 如果现在超过了5秒的间隔（默认是90秒）
 
 spring:
+  zipkin:
+    base-url: http://localhost:8601 #所有的数据提交到此服务之中
+    sender:
+      type: web       #提交的类型是web 服务
+  sleuth:
+    sampler:
+      probability: 1.0 # 定义抽样比率，默认为0.1
   application:
     name:  spring-cloud-zuul-gateway
   security:
