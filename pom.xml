@@ -35,6 +35,8 @@
         <module>spring-cloud-config-eureka-high</module>
         <module>spring-cloud-config-bus</module>
         <module>spring-cloud-config-bus-client</module>
+        <module>spring-cloud-stream-provider</module>
+        <module>spring-cloud-stream-consumer</module>
     </modules>
 
     <properties>
